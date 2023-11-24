@@ -21,7 +21,7 @@ This API will allow logged-in users to create, read, update and delete tasks.
 2. Open the repository:
 
 ```bash
-    cd Tasks-Manager-Laravel-API
+    cd Tasks-Manager-Laravel-API/tasks-manager-app
 ```
 
 3. Install the dependencies:
