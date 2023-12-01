@@ -28,7 +28,7 @@ class Handler extends ExceptionHandler
             if ($request->is("api/*")) {
                 // On retourne une réponse 404 avec un message en JSON
                 return response()->json([
-                    "message" => "Ressource introuvable"
+                    "message" => "Resource not Found"
                 ], 404);
             }
         });
