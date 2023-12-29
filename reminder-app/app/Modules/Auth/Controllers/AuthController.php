@@ -4,12 +4,14 @@ namespace App\Modules\Auth\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use App\Modules\User\Models\User;
 use Validator;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Modules\Auth\DTO;
 use App\Modules\Auth\AuthService;
+use App\Modules\Auth\Requests\RegisterRequest;
+use App\Modules\Auth\Requests\LoginRequest;
 
 class AuthController extends Controller
 {
@@ -20,25 +22,21 @@ class AuthController extends Controller
         $this->authService = $authService;
     }
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|unique:users',
-            'password' => 'required|string',
-            'c_password' => 'required|same:password',
-        ]);
+        $data = $request->validated();
         $response = $this->authService->register($data);
-        return response()->json($response);
+        return $response;
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $data = $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
-        ]);
+        $data = $request->validated();
+        // $data = $request->validate([
+        //     'email' => 'required|string|email',
+        //     'password' => 'required|string',
+        //     'remember_me' => 'boolean'
+        // ]);
         $response = $this->authService->login($data);
         return $response;
     }
@@ -55,7 +53,7 @@ class AuthController extends Controller
 
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         $response = $this->authService->logout();
         return $response;
