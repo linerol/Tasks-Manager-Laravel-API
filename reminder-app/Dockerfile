@@ -17,10 +17,12 @@ RUN apt-get update -y && apt-get install -y \
     libpq-dev \
     libonig-dev \
     default-mysql-client
+
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions
+RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mbstring
@@ -48,9 +50,11 @@ WORKDIR /var/www
 COPY --chown=www:www . /var/www
 
 # Change current user to www
-# USER www
+USER www
 
-# COPY .env.example .env
+RUN chown -R www:www /var/www/storage /var/www/bootstrap/cache
+RUN chown -R www:www /var/www/storage/framework/views
+
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000

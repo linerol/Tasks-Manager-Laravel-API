@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: digitalocean.com/php
+    # image: digitalocean.com/php
     container_name: app
     restart: unless-stopped
     tty: true
@@ -17,8 +17,12 @@ services:
     volumes:
       - ./:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./storage:/var/www/storage
     networks:
       - app-network
+    ports:
+      - "8000:8000"  # Expose Laravel development server port
+
 
   #Nginx Service
   webserver:
