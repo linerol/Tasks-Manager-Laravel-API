@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     # image: digitalocean.com/php
     container_name: app
-    restart: unless-stopped
+    # restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: app
