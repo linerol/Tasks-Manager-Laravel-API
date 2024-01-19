@@ -10,8 +10,7 @@
             "src": "/(.*)",
             "dest": "/api/index.php",
             "methods": [
-                "GET",
-                "POST",
+                "GET", "POST",
                 "PUT",
                 "PATCH",
                 "DELETE",
