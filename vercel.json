@@ -8,37 +8,37 @@
     "routes": [
         {
           "src": "/api/auth/login",
-          "dest": "/api/index.php",
+          "dest": "/public/index.php",
           "methods": ["POST"]
         },
         {
           "src": "/api/auth/logout",
-          "dest": "/api/index.php",
+          "dest": "/public/index.php",
           "methods": ["POST"]
         },
         {
           "src": "/api/auth/register",
-          "dest": "/api/index.php",
+          "dest": "/public/index.php",
           "methods": ["POST"]
         },
         {
           "src": "/api/tasks",
-          "dest": "/api/index.php",
+          "dest": "/public/index.php",
           "methods": ["GET", "POST"]
         },
         {
           "src": "/api/tasks/:task",
-          "dest": "/api/index.php",
+          "dest": "/public/index.php",
           "methods": ["GET", "PATCH", "PUT", "DELETE"]
         },
         {
           "src": "/api/user/me",
-          "dest": "/api/index.php",
+          "dest": "/public/index.php",
           "methods": ["GET"]
         },
         {
           "src": "/docs/api",
-          "dest": "/api/index.php",
+          "dest": "/public/index.php",
           "methods": ["GET"]
         }
         ],
