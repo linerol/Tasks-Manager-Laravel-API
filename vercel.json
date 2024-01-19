@@ -11,6 +11,12 @@
             "src": "/(.*)",
             "dest": "/api/index.php",
             "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+        },
+        {
+            "src": "/(.*)",
+            "methods": ["OPTIONS"],
+            "status": 200,
+            "headers": {"Access-Control-Allow-Origin": "*"}
         }
     ],
     "env": {
