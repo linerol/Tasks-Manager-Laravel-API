@@ -8,6 +8,7 @@ use App\Modules\Auth\DTO;
 use App\Modules\Auth\AuthService;
 use App\Modules\Auth\Requests\RegisterRequest;
 use App\Modules\Auth\Requests\LoginRequest;
+use App\Modules\Auth\Controllers\Log;
 
 class AuthController extends Controller
 {
@@ -20,6 +21,7 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
+        info('Attempting to access register routeuhh.');
         $data = $request->validated();
         $response = $this->authService->register($data);
         return $response;
