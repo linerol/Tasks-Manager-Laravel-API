@@ -1,123 +1,66 @@
-# Tasks-Manager-Laravel-API
-Design and implement an API using Laravel to manage tasks.
-This API will allow logged-in users to create, read, update and delete tasks.
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## Configuration
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-### Requirements
-    -   PHP (lts)
-    -   Composer
-    -   MySQL
-    -   NodeJs & NPM
+## About Laravel
 
-### Installation
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-1. Clone the repository:
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-```bash
-    git clone git@github.com:linerol/Tasks-Manager-Laravel-API.git
-```
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-2. Open the repository:
+## Learning Laravel
 
-```bash
-    cd Tasks-Manager-Laravel-API/tasks-manager-app
-```
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-3. Install the dependencies:
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-```bash
-    composer install
-```
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-4. Create a new database
-<!-- I will show you how to create and set a new database with MySQl.
-    But you can use another Database Server -->
+## Laravel Sponsors
 
-```bash
-    # connection to mysql
-    sudo mysql -u root -p
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-    # create a new database
-    CREATE DATABASE tasks_manager;
+### Premium Partners
 
-    # create a new user. you can replace "myuser" and "password"
-    CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'password';
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
-    # grant privileges to the user
-    GRANT ALL PRIVILEGES ON tasks_manager.* TO 'myuser'@'localhost';
-    # flush privileges
-    FLUSH PRIVILESGES;
+## Contributing
 
-    # exit from mysql
-    exit;
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-```
+## Code of Conduct
 
-5. Copy the `.env.example` file and rename it to `.env`.
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-```bash
-    cp .env.example .env
-```
+## Security Vulnerabilities
 
-6. Update the `.env` file with the database credentials:
-<!-- By Default, you have to modify these field to use the database created 
-    previously -->
-    -   DB_DATABASE=task_manager
-    -   DB_USERNAME=myuser
-    -   DB_PASSWORD=password
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-7. Run the migrations:
+## License
 
-```bash
-    php artisan migrate
-```
-
-## Execution
-
-```bash
-    php artisan serve
-```
-
-Your laravel Application will be accessible at https://127.0.0.1:8000 address
-
-## ENDPOINTS API
-
-### List all tasks
-    -   URL :   /api/tasks
-    -   Method :   GET
-    -   Description :   Get all tasks and print them in json format.
-    -   Example of request : curl http://127.0.0.1:8000/api/tasks
-
-### Display a specific task
-    -   URL : /api/tasks/{id}
-    -   Method : GET
-    -   Description : Display informations about a specific tasks thanks to his ID.
-    -   Example of request : curl http://127.0.0.1:8000/api/tasks/1
-
-### Create a new task
-    -   URL : /api/tasks
-    -   Method : POST
-    -   Description : Create a new task and add it to the remaining in the database.
-    -   Example of request : curl -X POST -H "Content-Type: application/json" -d '{"title":"New Task", "description":"Task's description", etc...}' http://127.0.0.1:8000/api/tasks
-
-### Update information about an existing task
-    -   URL : /api/tasks/{id}
-    -   Method : PUT or PATCH
-    -   Description : Updates an existing task based on the ID.
-    -   Example of request : curl -X PUT -H "Content-Type: application/json" -d '{"title":"Task update", "description":"Description update", etc...}' http://127.0.0.1:8000/api/tasks/1
-
-### Delete task
-    -   URL : /api/tasks/{id}
-    -   Method : DELETE
-    -   Description : Deletes a job according to ID.
-    -   Example of request : curl -X DELETE http://127.0.0.1:8000/api/tasks/1
-
-
-## CONTRIBUTION
-If you would like to contribute to this project, please contact
-one of the authors for instructions on how to contribute.
-
-## Authors
-Linerol Tchecounnou
-email: sessi.tchecounnou@epitech.eu
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
