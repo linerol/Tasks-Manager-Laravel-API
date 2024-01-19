@@ -20,7 +20,7 @@
         "src": "/(.*)",
         "methods": ["OPTIONS"],
         "status": 200,
-        "headers": {"Access-Control-Allow-Origin": "*"}
+        "headers": {"Access-Control-Allow-Origin": "https://reminder-4wp0dtfon-linerols-projects.vercel.app"}
       },
       {
         "src": "/sanctum/csrf-cookie",
