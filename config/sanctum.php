@@ -20,10 +20,6 @@ return [
         'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1,https://reminder-app-nine-eta.vercel.app,https://reminder-4wp0dtfon-linerols-projects.vercel.app',
         Sanctum::currentApplicationUrlWithPort()
     ))),
-
-    // 'allowed_domains' => [
-    //     'https://reminder-app-nine-eta.vercel.app',
-    // ],
     
     /*
     |--------------------------------------------------------------------------
