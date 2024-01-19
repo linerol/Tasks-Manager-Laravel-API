@@ -1,36 +1,45 @@
 {
     "version": 2,
-    "framework": null,
     "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.6.0"
-        }
+      "api/index.php": {
+        "runtime": "vercel-php@0.6.0"
+      }
     },
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php",
-            "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
-        },
-        {
-            "src": "/(.*)",
-            "methods": ["OPTIONS"],
-            "status": 200,
-            "headers": {"Access-Control-Allow-Origin": "*"}
-        }
+      {
+        "src": "/(.*)",
+        "dest": "/api/index.php",
+        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+      },
+      {
+        "src": "/docs/api",
+        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        "dest": "/api/index.php"
+      },
+      {
+        "src": "/(.*)",
+        "methods": ["OPTIONS"],
+        "status": 200,
+        "headers": {"Access-Control-Allow-Origin": "*"}
+      },
+      {
+        "src": "/sanctum/csrf-cookie",
+        "dest": "/api/index.php"
+      }  
     ],
     "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "true",
-        "APP_URL": "https://reminder-a32f0wdwk-linerols-projects.vercel.app",
-        "APP_CONFIG_CACHE": "/tmp/config.php",
-        "APP_EVENTS_CACHE": "/tmp/events.php",
-        "APP_PACKAGES_CACHE": "/tmp/packages.php",
-        "APP_ROUTES_CACHE": "/tmp/routes.php",
-        "APP_SERVICES_CACHE": "/tmp/services.php",
-        "VIEW_COMPILED_PATH": "/tmp",
-        "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
+      "APP_ENV": "production",
+      "APP_DEBUG": "true",
+      "APP_URL": "https://reminder-4wp0dtfon-linerols-projects.vercel.app",
+      "APP_CONFIG_CACHE": "/tmp/config.php",
+      "APP_EVENTS_CACHE": "/tmp/events.php",
+      "APP_PACKAGES_CACHE": "/tmp/packages.php",
+      "APP_ROUTES_CACHE": "/tmp/routes.php",
+      "APP_SERVICES_CACHE": "/tmp/services.php",
+      "VIEW_COMPILED_PATH": "/tmp",
+      "CACHE_DRIVER": "array",
+      "LOG_CHANNEL": "stderr",
+      "SESSION_DRIVER": "cookie"
     }
-}
+  }
+  
