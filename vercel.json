@@ -7,41 +7,19 @@
     },
     "routes": [
         {
-          "src": "/api/auth/login",
-          "dest": "/public/index.php",
-          "methods": ["POST"]
-        },
-        {
-          "src": "/api/auth/logout",
-          "dest": "/public/index.php",
-          "methods": ["POST"]
-        },
-        {
-          "src": "/api/auth/register",
-          "dest": "/public/index.php",
-          "methods": ["POST"]
-        },
-        {
-          "src": "/api/tasks",
-          "dest": "/public/index.php",
-          "methods": ["GET", "POST"]
-        },
-        {
-          "src": "/api/tasks/:task",
-          "dest": "/public/index.php",
-          "methods": ["GET", "PATCH", "PUT", "DELETE"]
-        },
-        {
-          "src": "/api/user/me",
-          "dest": "/public/index.php",
-          "methods": ["GET"]
-        },
-        {
-          "src": "/docs/api",
-          "dest": "/public/index.php",
-          "methods": ["GET"]
+            "src": "/(.*)",
+            "dest": "/public/index.php",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "HEAD",
+                "OPTIONS"
+            ]
         }
-        ],
+    ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
