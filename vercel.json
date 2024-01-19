@@ -8,7 +8,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/api/index.php",
+            "dest": "/public/index.php",
             "methods": [
                 "GET",
                 "POST",
